@@ -65,6 +65,7 @@ public class CheckTopologyTask {
     //timing variables to support SLING-11753 request
     private long reassignJobsStart;
     private long reassignJobsEnd;
+    private String strTotalms;
 
 
     /**
@@ -106,10 +107,10 @@ public class CheckTopologyTask {
                         }
                     }
                 } finally {
-                    // finishing timestamp
+                    // ending timestamp
                     reassignJobsEnd = System.currentTimeMillis();
-                    logger.info("reassignJobsFromStoppedInstances took " + (reassignJobsEnd - reassignJobsStart) + "ms");
-                    resolver.close();
+                    strTotalms = String.valueOf((reassignJobsEnd - reassignJobsStart));
+                    logger.info("reassignJobsFromStoppedInstances took {0}ms", strTotalms);
                 }
             }
         }
@@ -204,7 +205,8 @@ public class CheckTopologyTask {
                 } finally {
                     // ending timestamp
                     reassignJobsEnd = System.currentTimeMillis();
-                    logger.info("reassignStaleJobs took " + (reassignJobsEnd - reassignJobsStart) + "ms");
+                    strTotalms = String.valueOf((reassignJobsEnd - reassignJobsStart));
+                    logger.info("reassignStaleJobs took {0}ms", strTotalms);
                     resolver.close();
                 }
             }
@@ -235,7 +237,8 @@ public class CheckTopologyTask {
                 } finally {
                     // ending timestamp
                     reassignJobsEnd = System.currentTimeMillis();
-                    logger.info("assignUnassignedJobs took " + (reassignJobsEnd - reassignJobsStart) + "ms");
+                    strTotalms = String.valueOf((reassignJobsEnd - reassignJobsStart));
+                    logger.info("assignUnassignedJobs took {0}ms", strTotalms);
                     resolver.close();
                 }
             }
