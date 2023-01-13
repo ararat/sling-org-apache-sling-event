@@ -110,7 +110,7 @@ public class CheckTopologyTask {
                     // ending timestamp
                     reassignJobsEnd = System.currentTimeMillis();
                     strTotalms = String.valueOf((reassignJobsEnd - reassignJobsStart));
-                    logger.info("reassignJobsFromStoppedInstances took {0}ms", strTotalms);
+                    logger.info("reassignJobsFromStoppedInstances took {} ms", strTotalms);
                 }
             }
         }
@@ -206,7 +206,7 @@ public class CheckTopologyTask {
                     // ending timestamp
                     reassignJobsEnd = System.currentTimeMillis();
                     strTotalms = String.valueOf((reassignJobsEnd - reassignJobsStart));
-                    logger.info("reassignStaleJobs took {0}ms", strTotalms);
+                    logger.info("reassignStaleJobs took {} ms", strTotalms);
                     resolver.close();
                 }
             }
@@ -238,7 +238,7 @@ public class CheckTopologyTask {
                     // ending timestamp
                     reassignJobsEnd = System.currentTimeMillis();
                     strTotalms = String.valueOf((reassignJobsEnd - reassignJobsStart));
-                    logger.info("assignUnassignedJobs took {0}ms", strTotalms);
+                    logger.info("assignUnassignedJobs took {} ms", strTotalms);
                     resolver.close();
                 }
             }
